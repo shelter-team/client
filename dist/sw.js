@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.5bf72416e2d1fa979d6615aa1f1346cf.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/client/precache-manifest.b5919398d6f800cae5fa0f5ece4c07f0.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 const CACHE_NAME = 'static-cache-v1';
 
