@@ -1,0 +1,9 @@
+.full-flex {
+	flex: 1 0 100%;
+}
+
+.crud-cell {
+	display: inline-flex;
+	align-items: center;
+	flex-wrap: nowrap;
+}

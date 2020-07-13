@@ -1,0 +1,46 @@
+{
+  "name": "test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "await-to-js": "^2.1.1",
+    "axios": "^0.19.2",
+    "material-design-icons-iconfont": "^5.0.1",
+    "normalize.css": "^8.0.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.3.4",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.4",
+    "@babel/plugin-syntax-optional-chaining": "^7.8.3",
+    "@types/jquery": "^3.5.0",
+    "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-plugin-typescript": "^4.4.6",
+    "@vue/cli-service": "^4.4.6",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "css-loader": "^3.6.0",
+    "jshint": "^2.11.0",
+    "prettier": "^2.0.5",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.0.0",
+    "raw-loader": "^4.0.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2",
+    "sass-variable-parser": "^1.2.2",
+    "typescript": "^3.9.6",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
