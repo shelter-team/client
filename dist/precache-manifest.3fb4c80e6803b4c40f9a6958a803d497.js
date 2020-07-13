@@ -32,7 +32,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/client/manifest.json"
   },
   {
-    "revision": "05c411894ff5238536d033aacb5311ab",
+    "revision": "6db98a41154d141de4d62fb026f7ce34",
     "url": "/client/offline.html"
   },
   {
