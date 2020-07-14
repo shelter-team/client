@@ -1,14 +1,15 @@
 // import Vue from 'vue'
-
 import { ActionTree } from 'vuex'
+
+import { defaultPerson, TPerson } from './types'
 
 const defaultState = () => ({
 	scenario: 'Чума',
 	bunker: {
 		capacity: 6,
 	},
-	profile: {},
-	people: []
+	profile: defaultPerson(),
+	people: [] as TPerson[],
 })
 
 const state = defaultState()

@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex, { ActionTree } from 'vuex'
+import Vuex, { ActionTree, ModuleTree } from 'vuex'
 
 import app from './app'
 import sess from './sess'
@@ -8,7 +8,9 @@ Vue.use(Vuex)
 
 const defaultState = () => ({})
 
-const modules = {
+// FIXME: Я ебал
+// eslint-disable-next-line
+const modules: ModuleTree<any> = {
 	app,
 	sess
 }

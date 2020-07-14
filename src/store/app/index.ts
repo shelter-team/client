@@ -1,4 +1,5 @@
 // import Vue from 'vue'
+import { ActionTree } from 'vuex'
 
 const defaultState = () => ({
 	appId: null
@@ -6,7 +7,13 @@ const defaultState = () => ({
 
 const state = defaultState()
 
-const actions = {}
+type TState = typeof state
+
+const actions: ActionTree<TState, TState> = {
+	async init() {
+		//
+	}
+}
 
 const mutations = {}
 
