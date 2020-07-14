@@ -1,24 +1,24 @@
 const CACHE_NAME = 'static-cache-v1';
 
 const FILES_TO_CACHE = [
-  '/offline.html',
+	'/offline.html',
 ]
 
 self.addEventListener('install', (evt) => {
-  console.log('[ServiceWorker] Install')
-  evt.waitUntil(
+	console.log('[ServiceWorker] Install')
+	evt.waitUntil(
 		caches.open(CACHE_NAME).then((cache) => {
 			console.log('[ServiceWorker] Pre-caching offline page')
 			return cache.addAll(FILES_TO_CACHE)
 		})
 	)
 
-  self.skipWaiting()
+	self.skipWaiting()
 })
 
 self.addEventListener('activate', (evt) => {
-  console.log('[ServiceWorker] Activate');
-  evt.waitUntil(
+	console.log('[ServiceWorker] Activate');
+	evt.waitUntil(
 		caches.keys().then((keyList) => {
 			return Promise.all(keyList.map((key) => {
 				if (key !== CACHE_NAME) {
@@ -29,12 +29,12 @@ self.addEventListener('activate', (evt) => {
 		})
 	)
 
-  self.clients.claim()
+	self.clients.claim()
 })
 
 self.addEventListener('fetch', (evt) => {
-  console.log('[ServiceWorker] Fetch', evt.request.url);
-  if (evt.request.mode !== 'navigate') {
+	console.log('[ServiceWorker] Fetch', evt.request.url);
+	if (evt.request.mode !== 'navigate') {
 		// Not a page navigation, bail.
 		return
 	}
