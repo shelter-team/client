@@ -4,6 +4,7 @@ import { ActionTree } from 'vuex'
 import { defaultPerson, TPerson } from './types'
 
 const defaultState = () => ({
+	in_progress: true,
 	scenario: 'Чума',
 	bunker: {
 		capacity: 6,
