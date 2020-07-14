@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/manifest.json"
   },
   {
-    "revision": "6db98a41154d141de4d62fb026f7ce34",
+    "revision": "b56de9e9ea27c2a40f98efeb736a50fe",
     "url": "/offline.html"
   },
   {
@@ -36,7 +36,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/robots.txt"
   },
   {
-    "revision": "11e32bb85845c860f9e576cb4a1e58ea",
+    "revision": "72abffac99cf4fc4c2d576b538988564",
     "url": "/static.json"
   }
 ]);
