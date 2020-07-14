@@ -20,9 +20,19 @@ import { mapState } from 'vuex'
 
 export default Vue.extend({
 	name: 'Game',
+	
 	components: {
 		Block
 	},
+
+	props: {
+		id: {
+			type: String,
+			required: true,
+			default: '',
+		}
+	},
+
 	computed: {
 		...mapState(['sess'])
 	}

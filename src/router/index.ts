@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 
-import Game from '@/views/Game/view.vue'
-// import Splash from '@/views/Splash.vue'
+import Sess from '@/views/Sess/view.vue'
+import Splash from '@/views/Home/view.vue'
 
 Vue.use(VueRouter)
 
@@ -10,13 +10,20 @@ Vue.use(VueRouter)
 	{
 		path: '/',
 		name: 'home',
-		component: Game
+		component: Splash
 	},
 	{
-		path: '/about',
-		name: 'About',
-		component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-	}
+		path: '/sess/:id',
+		name: 'sess',
+		component: Sess,
+		props: true,
+	},
+	// {
+	// 	path: '/about',
+	// 	name: 'session',
+	// 	component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+	// }
+
 ]
 
 const router = new VueRouter({
