@@ -2,7 +2,7 @@
 	div.game.container
 		Block
 			template(#content) DashBoard
-		div.deck
+		Deck
 			Card.pandemic(
 				:order="0"
 				:title="`Сценарий: ${sess.scenario}`"
@@ -16,9 +16,9 @@
 					p Паника людей, разрушение улиц и большинства городов. После выхода из бункера улицы переполнены мародерами. 
 					p Необходимо подумать о своей защите и безопасности. Остаток здорового населения на планете 12%
 
-			Card(
+			Card.bunker(
 				:order="1"
-				title="Бункер"
+				:title="`Бункер (${sess.bunker.capacity} мест)`"
 				:current="current"
 				@update="onUpdateCurrent"
 			)
@@ -50,18 +50,10 @@
 				:current="current"
 				@update="onUpdateCurrent"
 			)
-				template(#content).container
-					div.block Хуй с горы
-					div.block Хуй с горы
-					div.block Хуй с горы
-					div.block Хуй с горы
-					div.block Хуй с горы
-					div.block Хуй с горы
-					div.block Хуй с горы
-					div.block Хуй с горы
-					div.block Хуй с горы
-					div.block Хуй с горы
-					div.block Хуй с горы
+				template(#content)
+					Players
+
+					
 </template>
 
 <script>
@@ -74,6 +66,7 @@ import Card from '@/comp/Card.vue'
 
 import Bunker from './Game/Bunker'
 import Profile from './Game/Profile'
+import Players from './Game/Players'
 
 export default Vue.extend({
 	name: 'Game',
@@ -84,6 +77,7 @@ export default Vue.extend({
 		Card,
 		Bunker,
 		Profile,
+		Players,
 	},
 
 	props: {

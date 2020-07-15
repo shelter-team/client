@@ -2,14 +2,14 @@
 	div.list
 		div.sep 
 		div.key Вместимость:
-		div.val 7 чел.
+		div.val {{ bunker.capacity }} чел.
 		div.sep
 		div.key Площадь:
-		div.val 70 м
+		div.val {{ bunker.area }} м
 			sup 2
 		div.sep
 		div.key Время пребывания:
-		div.val 60 дней
+		div.val {{ bunker.time }} дней
 		div.sep
 		div.row Спальные места и все необходимое для поддержания гигиены
 		div.sep
@@ -32,12 +32,8 @@ export default Vue.extend({
 	components: {
 	},
 
-	props: {
-		
-	},
-
 	computed: {
-		...mapState(['sess'])
+		...mapState('sess', ['bunker'])
 	}
 })
 </script>

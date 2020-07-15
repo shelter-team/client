@@ -5,8 +5,8 @@
 			div.title {{ title }}
 			div.text {{ value }}
 		div.icon
-			snap(v-if="active") ☑️
-			span(v-else) -
+			span(v-if="active") ✔️
+			span(v-else) ❓
 </template>
 
 <script lang="ts">
@@ -35,8 +35,8 @@ export default Vue.extend({
 		},
 
 		active: {
-			type: String,
-			default: '',
+			type: Boolean,
+			default: false,
 			required: false,
 		},
 	},
@@ -51,7 +51,7 @@ export default Vue.extend({
 		align-items: center;
 		border-top: 1px dotted;
 		padding: 2vmin 0;
-		opacity: 0.6;
+		opacity: 0.45;
 
 		&:last-of-type {
 			border-bottom: 1px dotted;
@@ -75,7 +75,8 @@ export default Vue.extend({
 			flex-flow: column nowrap;
 
 			.title {
-				font-size: 40%;
+				font-size: 50%;
+				font-weight: bold;
 			}
 			.text {
 				/* font-weight: bold; */

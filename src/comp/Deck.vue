@@ -18,7 +18,6 @@ export default Vue.extend({
 	.deck {
 		flex-grow: 1;
 		position: relative;
-		/* overflow: hidden; */
 		margin: 2vmin 0;
 	}
 </style>

@@ -40,6 +40,12 @@ export default Vue.extend({
 			default: -1,
 			required: true,
 		},
+
+		cover: {
+			type: String,
+			default: '',
+			required: false,
+		},
 	},
 
 	data: () => ({
@@ -94,7 +100,6 @@ export default Vue.extend({
 		height: 100%;
 		background-color: #eee;
 		position: absolute;
-		padding: 6vmin;
 		border-radius: 3vmin;
 		box-shadow: 0 0 3vmin #000;
 		margin: 0 2vmin;
@@ -103,11 +108,12 @@ export default Vue.extend({
 		transition: all 0.15s;
 
 		.title {
+			padding: 6vmin;
 		}
 
 		.content {
 			overflow: auto;
-			margin: 6vmin 0;
+			margin: 0 6vmin;
 			flex-grow: 1;
 
 			&.active {
@@ -122,6 +128,7 @@ export default Vue.extend({
 
 		.button {
 			padding: 2vmin;
+			margin: 6vmin;
 		}
 	}
 </style>

@@ -2,51 +2,51 @@
 	div
 		Trait(
 			title="Профессия:"
-			value="Физик"
+			:value="player.profession || ''"
 			:active="true"
 			icon="🎓"
 		)
 		Trait(
 			title="Здоровье:"
-			value="Мигрень"
+			:value="player.health || ''"
 			:active="false"
 			icon="⚕️"
 		)
 		Trait(
 			title="Биологические характеристики:"
-			value="Мужчина, 25 лет, гетеросексуален"
+			:value="vBiology"
 			:active="false"
-			icon="♂️"
+			:icon="vGender"
 		)
 		Trait(
 			title="Хобби:"
-			value="Танцы"
+			:value="player.hobby"
 			:active="false"
 			icon="⚽"
 		)
 		Trait(
 			title="Человеческое качество:"
-			value="Настырный"
+			:value="player.trait"
 			:active="false"
 			icon="🙂"
 		)
 		Trait(
 			title="Фобия:"
-			value="Нет фобии"
+			:value="player.phobia"
 			:active="true"
 			icon="😱"
 		)
 		Trait(
 			title="Доп. информация:"
-			value="Умеет ориентироваться по звездам"
+			:value="player.perk"
 			:active="true"
-			icon="ℹ️"
+			icon="⭐"
 		)
 		Trait(
 			title="Багаж:"
-			value="Фотоаппарат"
+			:value="player.baggage"
 			:active="false"
-			icon="👜"
+			icon="💼"
 		)
 	//-вшм
 		div.block Человеческое качество: Настырный🙂
@@ -57,9 +57,11 @@
 
 <script>
 import Vue from 'vue'
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 import Trait from '@/comp/Trait'
+import { shit } from '@/utils/Rand'
+import { biology } from '@/utils/Player'
 
 
 export default Vue.extend({
@@ -74,7 +76,24 @@ export default Vue.extend({
 	},
 
 	computed: {
-		...mapState(['sess'])
+		...mapState(['sess']),
+		...mapGetters('sess', {
+			'player': 'getProfile'
+			}),
+
+		vGender() {
+			switch(this.player.sex) {
+				case 'f':
+					return '♀️'
+				case 'm':
+					return '♂️'
+			}
+		},
+
+		vBiology() {
+			const player = this.player
+			return biology(player)
+		}
 	}
 })
 </script>
