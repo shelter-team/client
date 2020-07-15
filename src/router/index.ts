@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router'
 
 import Sess from '@/views/Sess/view.vue'
 import Splash from '@/views/Home/view.vue'
+import Result from '@/views/Result/view.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,12 @@ Vue.use(VueRouter)
 		path: '/sess/:id',
 		name: 'sess',
 		component: Sess,
+		props: true,
+	},
+	{
+		path: '/endgame',
+		name: 'end',
+		component: Result,
 		props: true,
 	},
 	// {

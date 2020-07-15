@@ -104,7 +104,7 @@ export default Vue.extend({
 
 		.title {
 		}
-		
+
 		.content {
 			overflow: auto;
 			margin: 6vmin 0;

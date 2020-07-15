@@ -1,8 +1,12 @@
 <template lang="pug">
-	div.splash
-		router-link(
+	div.splash.container
+		router-link.block(
 			to="/sess/1492"
-		) Join Session
+		) Демо: Катка
+		
+		router-link.block(
+			to="/endgame"
+		) Демо: Итог
 </template>
 
 <script lang="ts">
