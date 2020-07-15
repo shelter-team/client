@@ -92,7 +92,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 	.card {
 		height: 100%;
-		background: #eee;
+		background-color: #eee;
 		position: absolute;
 		padding: 6vmin;
 		border-radius: 3vmin;

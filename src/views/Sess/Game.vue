@@ -3,7 +3,7 @@
 		Block
 			template(#content) DashBoard
 		div.deck
-			Card(
+			Card.pandemic(
 				:order="0"
 				:title="`Сценарий: ${sess.scenario}`"
 				:current="current"
