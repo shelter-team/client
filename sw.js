@@ -1,6 +1,8 @@
-importScripts("/precache-manifest.23372f69d55aa33e3bf6782873c323d3.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+importScripts("/precache-manifest.62974df0351571db78d547d157a23f61.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-const CACHE_NAME = 'static-cache-v1-3';
+const VERSION = '1-4'
+
+const CACHE_NAME = `static-cache-v${VERSION}`;
 
 const FILES_TO_CACHE = [
 	'/offline.html',
