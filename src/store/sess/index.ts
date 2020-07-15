@@ -5,7 +5,7 @@ import { defaultPerson, TPerson } from './types'
 
 const defaultState = () => ({
 	in_progress: true,
-	scenario: 'Чума',
+	scenario: 'Пандемия',
 	bunker: {
 		capacity: 6,
 	},
