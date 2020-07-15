@@ -48,3 +48,10 @@ html, body {
 	margin: $out $out 0;
 	/* border-radius: $half; */
 }
+
+.deck {
+	flex-grow: 1;
+	position: relative;
+	/* overflow: hidden; */
+	margin: 2vmin 0;
+}

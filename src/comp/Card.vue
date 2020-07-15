@@ -8,15 +8,16 @@
 			)
 				slot(name="title")
 					span(v-if="!!title") {{ title }}
-			div.content
+			div(:class="['content', activeClass]")
 				slot(name="content")
+			button.button(@click="toggleActive") Свернуть
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
-	name: 'Block',
+	name: 'Card',
 
 	components: {
 	},
@@ -32,7 +33,13 @@ export default Vue.extend({
 			type: Number,
 			default: 0,
 			required: true,
-		}
+		},
+
+		current: {
+			type: Number,
+			default: -1,
+			required: true,
+		},
 	},
 
 	data: () => ({
@@ -40,12 +47,35 @@ export default Vue.extend({
 	}),
 
 	computed: {
+		activeClass() {
+			return this.current === this.order
+				? 'active'
+				: 'stacked'
+		},
+
 		cardN() {
-			const isActive = (this.active as boolean)
+			const isActive = this.order === this.current //(this.active as boolean)
 			const offset: number = isActive ? 0 : 18
-			return {
-				top: `${(this.order as number) * offset}vmin`,
-				zIndex: isActive ? 1000 : (this.order as number)
+
+			switch (true) {
+				case this.current < 0: {
+					return {
+						top: `${(this.order as number) * offset}vmin`,
+						marginTop: 0,
+					}
+				}
+				case this.order > this.current: {
+					return {
+						top: `100%`,
+						marginTop: `4vmin`,
+					}
+				}
+				case this.order == this.current: {
+					return {
+						top: `0`,
+						marginTop: 0,
+					}
+				}
 			}
 		}
 	},
@@ -53,6 +83,7 @@ export default Vue.extend({
 	methods: {
 		toggleActive() {
 			this.active = !this.active
+			this.$emit('update', this.order)
 		}
 	}
 })
@@ -72,11 +103,25 @@ export default Vue.extend({
 		transition: all 0.15s;
 
 		.title {
-			margin-bottom: 6vmin;
 		}
 		
 		.content {
 			overflow: auto;
+			margin: 6vmin 0;
+			flex-grow: 1;
+
+			&.active {
+				overflow: auto;
+				opacity: 1;
+			}
+			&.stacked {
+				overflow: hidden;
+				opacity: 0.33;
+			}
+		}
+
+		.button {
+			padding: 2vmin;
 		}
 	}
 </style>

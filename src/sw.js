@@ -1,4 +1,6 @@
-const CACHE_NAME = 'static-cache-v1-3';
+const VERSION = '1-4'
+
+const CACHE_NAME = `static-cache-v${VERSION}`;
 
 const FILES_TO_CACHE = [
 	'/offline.html',
