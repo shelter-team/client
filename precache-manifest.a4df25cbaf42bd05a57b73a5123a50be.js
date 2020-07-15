@@ -4,16 +4,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/.nojekyll"
   },
   {
-    "revision": "180e327e410222587893",
-    "url": "/css/app.a91e5586.css"
+    "revision": "6a91a8da1ade08cb7081",
+    "url": "/css/app.8302830b.css"
   },
   {
-    "revision": "1abd29a0052cd2937630b05e992823bb",
+    "revision": "65e21a87e595aadd9d739b0d98183d49",
+    "url": "/img/pandemic-bg.jpg"
+  },
+  {
+    "revision": "2ad118df5b5d1a1b81d2fd412b3ff145",
     "url": "/index.html"
   },
   {
-    "revision": "180e327e410222587893",
-    "url": "/js/app.685ca474.js"
+    "revision": "6a91a8da1ade08cb7081",
+    "url": "/js/app.91b06c3e.js"
   },
   {
     "revision": "d2da70338405e7ca3dfc",
