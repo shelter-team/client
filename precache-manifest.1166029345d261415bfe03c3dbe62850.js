@@ -4,24 +4,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/.nojekyll"
   },
   {
-    "revision": "6a91a8da1ade08cb7081",
-    "url": "/css/app.8302830b.css"
+    "revision": "f14e09387c0414394f34",
+    "url": "/css/app.f7272832.css"
   },
   {
     "revision": "65e21a87e595aadd9d739b0d98183d49",
     "url": "/img/pandemic-bg.jpg"
   },
   {
-    "revision": "2ad118df5b5d1a1b81d2fd412b3ff145",
+    "revision": "d16687952ff77cbb3797a1a0669db70b",
     "url": "/index.html"
   },
   {
-    "revision": "6a91a8da1ade08cb7081",
-    "url": "/js/app.91b06c3e.js"
+    "revision": "f14e09387c0414394f34",
+    "url": "/js/app.8d84fc81.js"
   },
   {
-    "revision": "d2da70338405e7ca3dfc",
-    "url": "/js/chunk-vendors.86234223.js"
+    "revision": "94bc434c1892b926cce9",
+    "url": "/js/chunk-vendors.ad6292c4.js"
   },
   {
     "revision": "61623089c5a891fe2adfa3b5e5f8070e",
