@@ -1,11 +1,11 @@
 <template lang="pug">
 	div.row
 		div.icon {{ vId }}
+			div.tag(v-if="isPlayer") Это вы
+			div.tag(v-if="isLeft") Слева
+			div.tag(v-if="isRight") Справа
 		div.val
 			div.title
-				div.tag(v-if="isPlayer") Это вы
-				div.tag(v-if="isLeft") Слева
-				div.tag(v-if="isRight") Справа
 			div.text {{ vInfo }}
 		div.dial
 			button.ctrl +
@@ -63,7 +63,7 @@ export default Vue.extend({
 				current.phobia,
 				current.perk,
 				current.baggage,
-			].filter(shit).join('; ')
+			].filter(shit).join(' ‎• ')
 		}
 	},
 })
@@ -91,6 +91,16 @@ export default Vue.extend({
 			display: grid;
 			place-items: center;
 			font-size: 150%;
+
+			.tag {
+				font-size: 3vmin;
+				line-height: 3vmin;
+				padding: .5vmin;
+				background: #333;
+				color: #fff;
+				display: inline-block;
+				margin-top: 1vmin
+			}
 		}
 
 		.dial {
@@ -123,19 +133,10 @@ export default Vue.extend({
 			.title {
 				font-size: 50%;
 				font-weight: bold;
-
-				.tag {
-					font-size: 3vmin;
-					line-height: 3vmin;
-					padding: .5vmin;
-					background: #333;
-					color: #fff;
-					display: inline-block;
-					margin-right: 1vmin
-				}
 			}
 			.text {
 				/* font-weight: bold; */
+				font-size: 80%;
 			}
 		}
 
