@@ -1,6 +1,6 @@
 importScripts("/precache-manifest.e65482bdab4773bedaef26ccba1a78ed.js", "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-const VERSION = '1-5'
+const VERSION = '1-6'
 
 const CACHE_NAME = `static-cache-v${VERSION}`;
 
