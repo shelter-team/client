@@ -4,8 +4,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/.nojekyll"
   },
   {
-    "revision": "7d433fd64c2b098f4439",
-    "url": "/css/app.f7a1fd66.css"
+    "revision": "673b0f5f51fefe58ce7e",
+    "url": "/css/app.48e253ff.css"
   },
   {
     "revision": "47102fec64dd3792a337eb6a499cc6c9",
@@ -16,12 +16,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/pandemic-bg.jpg"
   },
   {
-    "revision": "26e7e7d195e50ebc43bb9ee4162390dd",
+    "revision": "07b0fe87c1caffc1e731f6435311d14b",
     "url": "/index.html"
   },
   {
-    "revision": "7d433fd64c2b098f4439",
-    "url": "/js/app.a2938ec2.js"
+    "revision": "673b0f5f51fefe58ce7e",
+    "url": "/js/app.103bead8.js"
   },
   {
     "revision": "ae0091611e4639aeccec",
