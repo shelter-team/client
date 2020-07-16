@@ -27,6 +27,7 @@
 			title="Характеристики"
 			:current="current"
 			@update="onUpdateCurrent"
+			:alert="sess.is_discover"
 		)
 			template(#content).container
 				Profile
@@ -43,12 +44,13 @@
 				
 		Card(
 			:order="4"
-			title="Кандидаты 9/12"
+			:title="`Кандидаты 9/${sess.people.length}`"
 			:current="current"
 			@update="onUpdateCurrent"
+			:alert="sess.is_voting"
 		)
 			template(#content)
-				Players
+				Roster
 </template>
 
 <script>
@@ -61,7 +63,10 @@ import Card from '@/comp/Card.vue'
 
 import Bunker from './Game/Bunker'
 import Profile from './Game/Profile'
-import Players from './Game/Players'
+import Roster from './Game/Roster'
+
+import { SIG } from '@/config'
+import { bus } from '@/plugins/eventBus'
 
 export default Vue.extend({
 	name: 'Game',
@@ -72,7 +77,7 @@ export default Vue.extend({
 		Card,
 		Bunker,
 		Profile,
-		Players,
+		Roster,
 	},
 
 	props: {
@@ -81,6 +86,14 @@ export default Vue.extend({
 	data: () => ({
 		current: -1,
 	}),
+
+	created() {
+		bus.$on(SIG.OPEN_TAB, this.onUpdateCurrent)
+	},
+
+	beforeDestroy() {
+		bus.$off(SIG.OPEN_TAB, this.onUpdateCurrent)
+	},
 
 	computed: {
 		...mapState(['sess'])

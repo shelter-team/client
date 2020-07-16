@@ -69,3 +69,14 @@ html, body {
 	background-size: contain;
 	background-repeat: no-repeat;
 }
+
+.witness-me {
+	animation: color-change 1s infinite;
+	text-shadow: 0 0 3vmin;
+}
+
+@keyframes color-change {
+	0% { color: #000; }
+	50% { color: #fb0; }
+	100% { color: #000; }
+}

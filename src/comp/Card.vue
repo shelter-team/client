@@ -7,7 +7,10 @@
 				@click="toggleActive"
 			)
 				slot(name="title")
-					span(v-if="!!title") {{ title }}
+					span(
+						v-if="!!title"
+						:class="[alert && !isActive && 'witness-me']"
+					) {{ title }}
 			div(:class="['content', activeClass]")
 				slot(name="content")
 			button.button(@click="toggleActive") Свернуть
@@ -46,6 +49,12 @@ export default Vue.extend({
 			default: '',
 			required: false,
 		},
+
+		alert: {
+			type: Boolean,
+			default: false,
+			required: false,
+		},
 	},
 
 	data: () => ({
@@ -53,8 +62,10 @@ export default Vue.extend({
 	}),
 
 	computed: {
+		isActive() { return this.current === this.order },
+
 		activeClass() {
-			return this.current === this.order
+			return this.isActive
 				? 'active'
 				: 'stacked'
 		},

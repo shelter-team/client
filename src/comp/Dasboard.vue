@@ -1,6 +1,9 @@
 <template lang="pug">
 	div.tray(:class="[isActive && 'active']")
 		div.list
+			div.master
+				button(@click="onVoting") Голосование: {{ is_voting }}
+				button(@click="onDiscover") Раскрытие: {{ is_discover }}
 			div.dash(
 				v-for="evt, idx in vList"
 				:key="idx"
@@ -8,8 +11,8 @@
 				div.message
 					div.header {{ evt.title }}
 					div.text {{ evt.text }}
-				div.action {{ evt.icon }}
-			div.dash
+				div.action(@click="onAction(evt.tag)") {{ evt.icon }}
+			//-div.dash
 				button(@click="onBuzz") Buzzzz
 		div.title(@click="onToggle") 
 			div.text
@@ -20,8 +23,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { 
+	TAG,
+	SIG,
+  TAB
+} from '@/config'
+import { bus } from '@/plugins/eventBus'
+import { mapState, mapActions } from 'vuex'
 
-const event = (title: string, text: string, icon?: string) => ({ title, text, icon })
+const event = (title: string, text: string, icon?: string, tag?: string) => ({ title, text, icon, tag })
 
 export default Vue.extend({
 	name: 'Dashboard',
@@ -35,15 +45,16 @@ export default Vue.extend({
 	data: () => ({
 		isActive: false,
 		events: [
-			event('Раунд 1: Вскрываемся', 'В свою очередь раскройте одну из своих характеристик остальным игрокам.', '✔️'),
+			event('Раунд 1: Вскрываемся', 'В свою очередь раскройте одну из своих характеристик остальным игрокам.', '✔️', TAG.SHOW),
 			event('Раунд 1: Голосование', 'В свою очередь выберите игрока, который по вашему мнению не должен попасть в бункер.', '✔️'),
-			event('Раунд 2: Вскрываемся', 'В свою очередь раскройте одну из своих характеристик остальным игрокам.', '✔️'),
+			event('Раунд 2: Вскрываемся', 'В свою очередь раскройте одну из своих характеристик остальным игрокам.', '✔️', TAG.SHOW),
 			event('Событие: смена профессий', 'Игрок 3 активирует особое условие. Все игроки получают новые профессии.', '✔️'),
-			event('Раунд 2: Голосование', 'В свою очередь выберите игрока, который по вашему мнению не должен попасть в бункер.', '➡️'),
+			event('Раунд 2: Голосование', 'В свою очередь выберите игрока, который по вашему мнению не должен попасть в бункер.', '➡️', TAG.VOTE),
 		]
 	}),
 
 	computed: {
+		...mapState('sess', ['is_voting', 'is_discover']),
 		vList() {
 			return [...this.events].reverse()
 		},
@@ -52,6 +63,11 @@ export default Vue.extend({
 	},
 
 	methods: {
+		...mapActions('sess', [
+			'setVoting',
+			'setDiscover',
+		]),
+
 		onToggle() {
 			this.isActive = !this.isActive
 		},
@@ -61,7 +77,25 @@ export default Vue.extend({
 				'Buzz',
 				window.navigator.vibrate([200, 50, 100]).toString(),
 			)) 
-		}
+		},
+
+		onAction(tag) {
+			switch (tag) {
+				case TAG.VOTE: {
+					this.isActive = false
+					bus.$emit(SIG.OPEN_TAB, TAB.ROSTER)
+					break
+				}
+				case TAG.SHOW: {
+					this.isActive = false
+					bus.$emit(SIG.OPEN_TAB, TAB.PROFILE)
+					break
+				}
+			}
+		},
+
+		onVoting() { this.setVoting(!this.is_voting) },
+		onDiscover() { this.setDiscover(!this.is_discover) },
 	}
 })
 </script>
@@ -141,6 +175,20 @@ export default Vue.extend({
 				text-overflow: ellipsis;
 				overflow: hidden;
 			}
+		}
+	}
+
+	.master {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-auto-flow: row;
+		grid-auto-rows: 18vmin;
+		gap: 2vmin;
+		margin: 2vmin;
+
+		& button {
+			font-size: 4vmin;
+			padding: 2vmin;
 		}
 	}
 </style>

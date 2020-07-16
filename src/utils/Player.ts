@@ -1,4 +1,4 @@
-import { shit } from "./Rand"
+import { shit, pluralize } from "./Rand"
 
 export const biology = (player) => {
 	const sex = {
@@ -22,7 +22,7 @@ export const biology = (player) => {
 
 	return [
 		player.sex && sex[player.sex].name,
-		player.age && `${player.age} лет`,
+		player.age && `${player.age} ${pluralize(player.age, 'год', 'года', 'лет')}`,
 		player.sex && player.gender && sex[player.sex].gender[player.gender],
 	].filter(shit).join(', ')
 }

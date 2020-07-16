@@ -7,6 +7,7 @@ const randID = () => Math.random().toString(36).slice(-8)
 
 export type TPerson = {
 	id: string
+	name: string
 	age: number;
 	sex: 'f'|'m',
 	gender: 's'|'b'|'h',
@@ -21,6 +22,7 @@ export type TPerson = {
 
 export const defaultPerson = (id = randID()): TPerson => ({
 	id,
+	name: `Игрок ${+id + 1}`,
 	age: rand(6, 20) + rand(6, 20) + rand(6, 20),
 	sex: pick(['f', 'm']),
 	gender: pick([
@@ -86,6 +88,6 @@ export const scramble = (p: TPerson): TPerson => {
 	const res = {}
 	Object
 		.keys(p)
-		.forEach(key => res[key] = (rand() < 0.5) || key === 'id' ? p[key] : null )
+		.forEach(key => res[key] = (rand() < 0.5) || ['id', 'name'].includes(key) ? p[key] : null )
 		return res as TPerson
 }

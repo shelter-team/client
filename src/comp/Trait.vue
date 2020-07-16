@@ -1,16 +1,20 @@
 <template lang="pug">
-	div(:class="[active && 'active']").row
+	div(:class="[isActive && 'active']").row
 		div.icon {{ icon }}
 		div.val
 			div.title {{ title }}
 			div.text {{ value }}
 		div.icon
 			span(v-if="active") ✔️
-			span(v-else) ❓
+			span(v-else)
+				template(v-if="is_discover")
+					button.flat ❗
+				template(v-else) ❓
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapState } from 'vuex'
 
 export default Vue.extend({
 	name: 'Trait',
@@ -39,6 +43,18 @@ export default Vue.extend({
 			default: false,
 			required: false,
 		},
+	},
+
+	computed: {
+		...mapState('sess', [
+			'is_discover',
+		]),
+
+		isActive() {
+			return this.is_discover
+				? !this.active
+				: this.active
+		}
 	},
 })
 </script>
@@ -80,11 +96,20 @@ export default Vue.extend({
 			}
 			.text {
 				/* font-weight: bold; */
+				font-size: 5vmin;
+				overflow: hidden;
 			}
 		}
 
 		&.active {
 			opacity: 1;
+		}
+
+		.flat {
+			border: 1px solid;
+			width: 12vmin;
+			height: 12vmin;
+			cursor: pointer;
 		}
 	}
 </style>
